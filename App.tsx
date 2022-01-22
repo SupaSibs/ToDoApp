@@ -1,13 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
-import React from "react"
-import { StyleSheet, Text, View, TextInput, Image,} from 'react-native';
+import * as React from "react"
+import { StyleSheet, Text, View, TextInput, Image, AppRegistry} from 'react-native';
 import styles from "./styles";
+import axios from "axios";
 class App extends React.Component {
 constructor(props: any) {
 super(props);
 this.state = {
-Lists: 
- }
+profile: axios.get("/api/auth").
+then(res => this.setState({loggedIn: res.profile})).
+catch(err => console.error(err)),
+}
 }
 render() {
   return(
@@ -18,3 +21,4 @@ render() {
 }
 }
 
+AppRegistry.registerComponent("App", () => App);

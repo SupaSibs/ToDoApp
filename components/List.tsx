@@ -1,9 +1,9 @@
-import React from "react"
+import * as React from "react"
 import {ScrollView, FlatList} from "react-native"
 
 //class comp
 export default class List extends React.Component {
-constructor(props) {
+constructor(props: any) {
 super(props);
 this.state = {
 //State
